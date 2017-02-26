@@ -2,7 +2,7 @@ from collections import deque
 from pprint import pprint
 
 
-def tail(filename, n=10):
+def tail_deque(filename, n=10):
     """
     retorna as ultimas linhas de um arquivo
 
@@ -12,4 +12,13 @@ def tail(filename, n=10):
         return deque(f, n)
 
 
-pprint(tail('tabacaria.txt', 6))
+def tail_list(filename, n=10):
+    """
+    retorna as primeiras linhas de um arquivo
+    """
+    with open(filename) as f:
+        return f.readlines()[-n:]
+
+
+pprint(tail_deque('tabacaria.txt'))
+pprint(tail_list('tabacaria.txt'))
